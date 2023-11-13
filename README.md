@@ -1,6 +1,5 @@
-!! Change this document for your own project by removing the placeholder text, adding your own text, adding helpful sections etc. etc. !!
-
-# <Project Title>
+# Duplikatserkennung
+# Konzipierung und Programmierung einer Software, welche für die Identifizierung von Duplikaten von Bildern verwendet werden kann.
 
 In a few sentences describe what your project is trying to solve.
 
@@ -28,7 +27,7 @@ included in the project template):
     pip install -r requirements.txt
 ``
 
-## Understanding the sources
+## Understanding the sources --> Hier erläutern, wie Projekt grob aufgebaut ist
 
 Explain any high level concepts that you are using in your software. What were
 your ideas for creating the whole software? What might not be apparent from the
