@@ -1,6 +1,6 @@
 !! Change this document for your own project by removing the placeholder text, adding your own text, adding helpful sections etc. etc. !!
 
-# <Project Title>
+# Dublikatserkennung
 
 In a few sentences describe what your project is trying to solve.
 
