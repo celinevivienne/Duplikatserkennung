@@ -1,5 +1,4 @@
-## Duplikatserkennung
-
+# Duplikatserkennung
 # Konzipierung und Entwicklung einer Software, welche für die Identifizierung von Duplikaten von Bildern verwendet werden kann
 
 In a few sentences describe what your project is trying to solve.
