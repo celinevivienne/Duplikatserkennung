@@ -76,9 +76,9 @@ class InputWindow:
         self.resultWindow.mainloop()
 
 
-def image_comparison_100(pictureX_path, pictureY_path):
-    picture1 = Image.open(pictureX_path)
-    picture2 = Image.open(pictureY_path)
+def image_comparison_100(picture_x_path, picture_y_path):
+    picture1 = Image.open(picture_x_path)
+    picture2 = Image.open(picture_y_path)
 
     if picture1.size != picture2.size:
         return False
