@@ -51,7 +51,7 @@ class DuplicateFinder:
     def __init__(self, path):
         self.path = path
 
-    def find_duplicates(self):
+    def find_duplicates_hash(self):
         hashes = {}
         duplicates = []
 
@@ -69,6 +69,11 @@ class DuplicateFinder:
                     except Exception as e:
                         print(f"Fehler beim Lesen von {filename}: {e}")
         return duplicates
+    
+    #def funktion_2(self):
+    #def funktion_3(self):
+    #def funktion_4(self):
+    #def funktion_5(self):
 
 class OutputWindow:
     def __init__(self, path):
@@ -77,10 +82,15 @@ class OutputWindow:
         self.show_duplicates_images(path)
 
     def show_duplicates_images(self, path):
+    # Klasse für die Duplikatsfindung wird aufgerufen => es werden verschiedene Funktionen angewendet
         finder = DuplicateFinder(path)
-        duplicates = finder.find_duplicates()
-        if duplicates:
-            self.show_duplicates(duplicates)
+        duplicates_hash = finder.find_duplicates_hash()
+        #duplicates_2= finder.funktion2()
+        #duplicates_3= finder.funktion3()
+        #duplicates_4= finder.funktion4()
+        #duplicates_5= finder.funktion5()
+        if duplicates_hash:
+            self.show_duplicates(duplicates_hash)
         else:
             self.display_message("Keine Duplikate gefunden!")
 
