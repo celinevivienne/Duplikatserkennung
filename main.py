@@ -6,7 +6,7 @@ from tkinter import filedialog, ttk
 
 
 class InputWindow:
-    def __init__(self, window):
+    def __init__(self,window):
         # Initialisieren von GUI-Komponenten
         self.window = window
         self.window.title("Duplikatserkennung")
@@ -44,74 +44,61 @@ class InputWindow:
     def adopt_folder(self):
         if self.selectFilePath:
             self.window.destroy()
-            self.show_duplicates_images(self.selectFilePath)
+            #Das OutputWindow wird geöffnet
+            OutputWindow(self.selectFilePath).run()
 
-    def show_duplicates_images(self, pfad):
-        duplicate = find_duplicates(pfad)
-        if duplicate:
-            self.show_duplicates_in_gui(duplicate)
+class DuplicateFinder:
+    def __init__(self, path):
+        self.path = path
+
+    def find_duplicates(self):
+        hashes = {}
+        duplicates = []
+
+        for folder_name, subfolders, file_names in os.walk(self.path):
+            for filename in file_names:
+                if filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".bmp")):
+                    filepath = os.path.join(folder_name, filename)
+                    try:
+                        with Image.open(filepath) as img:
+                            h = imagehash.average_hash(img)
+                            if h in hashes:
+                                duplicates.append((filename, os.path.basename(hashes[h])))
+                            else:
+                                hashes[h] = filepath
+                    except Exception as e:
+                        print(f"Fehler beim Lesen von {filename}: {e}")
+        return duplicates
+
+class OutputWindow:
+    def __init__(self, path):
+        self.window = tk.Tk()
+        self.window.title("Ergebnisse")
+        self.show_duplicates_images(path)
+
+    def show_duplicates_images(self, path):
+        finder = DuplicateFinder(path)
+        duplicates = finder.find_duplicates()
+        if duplicates:
+            self.show_duplicates(duplicates)
         else:
             self.display_message("Keine Duplikate gefunden!")
 
-    def show_duplicates_in_gui(self, duplicates):
-        self.duplicatesWindow = tk.Tk()
-        self.duplicatesWindow.title("Gefundene Duplikate")
+    def display_message(self, message):
+        label = ttk.Label(self.window, text=message)
+        label.pack(padx=10, pady=10)
 
-        self.duplicateList = tk.Listbox(self.duplicatesWindow, width=50, height=20)
-        self.duplicateList.pack(padx=10, pady=10)
+    def show_duplicates(self, duplicates):
+        duplicate_list = tk.Listbox(self.window, width=50, height=20)
+        duplicate_list.pack(padx=10, pady=10)
 
         for path1, path2 in duplicates:
-            self.duplicateList.insert(
-                tk.END,
-                f"Das Bild {os.path.basename(path1)} ist ein Duplikat von {os.path.basename(path2)}",
-            )
+            duplicate_list.insert(tk.END, f"Das Bild {os.path.basename(path1)} ist ein Duplikat von {os.path.basename(path2)}")
 
-        self.duplicatesWindow.mainloop()
+    def run(self):
+        self.window.mainloop()
 
-    def display_message(self, message):
-        self.resultWindow = tk.Tk()
-        self.resultWindow.title("Ergebnis")
-        label = ttk.Label(self.resultWindow, text=message)
-        label.pack(padx=10, pady=10)
-        self.resultWindow.mainloop()
-
-
-def image_comparison_100(picture_x_path, picture_y_path):
-    picture1 = Image.open(picture_x_path)
-    picture2 = Image.open(picture_y_path)
-
-    if picture1.size != picture2.size:
-        return False
-
-    pixels1 = picture1.getdata()
-    pixels2 = picture2.getdata()
-
-    for p1, p2 in zip(pixels1, pixels2):
-        if p1 != p2:
-            return False
-
-    return True
-
-
-def find_duplicates(path):
-    hashes = {}
-    duplicates = []
-
-    for folder_name, subfolders, file_names in os.walk(path):
-        for filename in file_names:
-            if filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".bmp")):
-                filepath = os.path.join(folder_name, filename)
-                try:
-                    with Image.open(filepath) as img:
-                        h = imagehash.average_hash(img)
-                        if h in hashes:
-                            duplicates.append((filename, os.path.basename(hashes[h])))
-                        else:
-                            hashes[h] = filepath
-                except Exception as e:
-                    print(f"Fehler beim Lesen von {filename}: {e}")
-    return duplicates
-
+###############################################################################################################################
 
 if __name__ == "__main__":
     # Hauptteil der Software um das GUI zu initialisieren
