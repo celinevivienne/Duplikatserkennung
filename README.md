@@ -24,12 +24,15 @@ Um das Python-Programm zu starten, sollte der Benutzer die Datei mit dem Hauptco
 
 Die Benutzer sollten in der Kommandozeile (Terminal) den folgenden Befehl ausführen, um das Programm zu starten:
 
-python main.py
+``
+    python main.py
+``
 
 Bevor das Programm ausgeführt wird, müssen auch die Abhängigkeiten installiert werden. Dies kann mit dem folgenden Befehl geschehen:
 
-pip install Pillow
-pip install scikit-image
+``
+    pip install -r requirements.txt
+``
 
 Die Bibliothek Pillow ist eine Abspaltung von PIL, der Python Imaging Library, und wird in diesem Programm für die Bildmanipulation verwendet.
 Zusätzlich muss die Bibliothek skit installiert werden. 
