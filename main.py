@@ -18,25 +18,16 @@ class InputWindow:
         self.description = ttk.Label(
             window, text="Bitte wähle den Ordner mit den zu prüfenden Bildern:"
         )
-        self.description.pack(pady=10)
+        self.description.pack(pady=1)
 
         # Ordner öffenen (Knopf)
         self.selectPath = ttk.Button(
             window, text="Ordner auswählen", command=self.select_folder
         )
-        self.selectPath.pack(pady=10)
+        self.selectPath.pack(pady=1)
 
         self.selectPathDescription = ttk.Label(window, text="")
         self.selectPathDescription.pack(pady=10)
-
-        # Bestätigung Ordner (Knopf)
-        self.safePath = ttk.Button(
-            window, text="Ordner übernehmen", command=self.adopt_folder
-        )
-        self.safePath.pack(pady=10)
-
-        # Variable zum speichern des ausgewählten Pfades
-        self.selectFilePath = None
 
         # Dropdown-Liste zur Auswahl der Duplikatserkennungsmethode
         self.method_var = tk.StringVar()
@@ -47,15 +38,24 @@ class InputWindow:
             window, textvariable=self.method_var,
             values=["Hash basierte Erkennung", "Struktur basierte Erkennung"]
         )
-        self.method_dropdown.pack(pady=10)
+        self.method_dropdown.pack(pady=1)
 
         # Schwellenwert für Ähnlichkeit
         self.threshold_var = tk.DoubleVar()
-        self.threshold_var.set(0.9)
+        self.threshold_var.set(0.5)
         self.threshold_label = ttk.Label(window, text="Schwellenwert für Ähnlichkeit:")
         self.threshold_label.pack(pady=10)
         self.threshold_entry = ttk.Entry(window, textvariable=self.threshold_var)
         self.threshold_entry.pack(pady=10)
+
+        # Bestätigung Ordner (Knopf)
+        self.safePath = ttk.Button(
+            window, text="Ordner prüfen", command=self.adopt_folder
+        )
+        self.safePath.pack(pady=10)
+
+        # Variable zum speichern des ausgewählten Pfades
+        self.selectFilePath = None
 
     def select_folder(self):
         file_path = filedialog.askdirectory()
