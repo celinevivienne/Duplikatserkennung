@@ -61,19 +61,23 @@ Wir haben diese Software zur Duplikaterkennung entwickelt, um in der heutigen sc
 Mit dem Entfernen der Duplikate wird der Benutzer automatisch beim Organisieren/Aufräumen grosser Mengen an Bildern unterstützt. Heutzutage, wo Zeit von entscheidender Bedeutung ist, ist unsere automatisierte Lösung ein praktischer Helfer.
 
 
-### Projektstruktur:
+### Projektstruktur
 
 Das Hauptprogramm besteht aus drei Klassen: InputWindow, DuplicateFinder und OutputWindow.
 InputWindow kümmert sich um die Benutzeroberfläche (GUI) für die Eingabe des Ordners mit den zu prüfenden Bildern.
 DuplicateFinder ist für die eigentliche Duplikatserkennung verantwortlich. Es gibt bereits eine Implementierung für die Hash-basierte Duplikatserkennung (find_duplicates_hash). Es gibt auch Platzhalter-Funktionen (ausgeklammert), die für zusätzliche Duplikatserkennungsmethoden verwendet werden könnten.
 OutputWindow zeigt die Ergebnisse der Duplikatserkennung in einem neuen Fenster an.
 
-### Funktionsweise:
+### Funktionsweise
 
 Der Benutzer startet das Programm und wählt über die GUI (InputWindow) den Ordner mit den zu prüfenden Bildern aus.
 Das Programm verwendet die DuplicateFinder-Klasse, um Duplikate in diesem Ordner zu finden. Aktuell wird nur die Hash-basierte Methode (find_duplicates_hash) verwendet.Die Ergebnisse werden dann in einem separaten Fenster (OutputWindow) angezeigt.
 
 Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und die Pillow-Bibliothek für die Bildverarbeitung. Die Hash-basierte Methode vergleicht Bilder anhand ihrer durchschnittlichen Hash-Werte.
+
+### Erweiterungen
+
+
 
 
 **löschen**
