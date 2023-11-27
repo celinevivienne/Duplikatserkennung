@@ -78,6 +78,12 @@ Das Programm verwendet die DuplicateFinder-Klasse, um Duplikate in diesem Ordner
 
 Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und die Pillow-Bibliothek für die Bildverarbeitung. Die Hash-basierte Methode vergleicht Bilder anhand ihrer durchschnittlichen Hash-Werte.
 
+#### Clean Code
+
+#### Version Control 
+
+#### Testing
+
 ### Erweiterungen
 
 1. Die Bilderkennungssoftware soll um **Cloud-Anbindung** erweitert werden, um Benutzern Zugriff auf ihre in der Cloud gespeicherten Bilder zu ermöglichen.
