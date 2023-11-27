@@ -65,11 +65,11 @@ Mit dem Entfernen der Duplikate wird der Benutzer automatisch beim Organisieren/
 
 Das Hauptprogramm besteht aus drei Klassen: InputWindow, DuplicateFinder und OutputWindow.
 
-> InputWindow kümmert sich um die Benutzeroberfläche (GUI) für die Eingabe des Ordners mit den zu prüfenden Bildern.
+> **InputWindow** kümmert sich um die Benutzeroberfläche (GUI) für die Eingabe des Ordners mit den zu prüfenden Bildern.
 
-> DuplicateFinder ist für die eigentliche Duplikatserkennung verantwortlich. Es gibt bereits eine Implementierung für die Hash-basierte Duplikatserkennung (find_duplicates_hash). Es gibt auch Platzhalter-Funktionen (ausgeklammert), die für zusätzliche Duplikatserkennungsmethoden verwendet werden könnten.
+> **DuplicateFinder** ist für die eigentliche Duplikatserkennung verantwortlich. Es gibt bereits eine Implementierung für die Hash-basierte Duplikatserkennung (find_duplicates_hash). Es gibt auch Platzhalter-Funktionen (ausgeklammert), die für zusätzliche Duplikatserkennungsmethoden verwendet werden könnten.
 
-> OutputWindow zeigt die Ergebnisse der Duplikatserkennung in einem neuen Fenster an.
+> **OutputWindow** zeigt die Ergebnisse der Duplikatserkennung in einem neuen Fenster an.
 
 ### Funktionsweise
 
