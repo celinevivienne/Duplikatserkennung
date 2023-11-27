@@ -28,19 +28,21 @@ Die Benutzer sollten in der Kommandozeile (Terminal) den folgenden Befehl ausfü
     python main.py
 ``
 
-Bevor das Programm ausgeführt wird, müssen auch die Abhängigkeiten installiert werden. Dies kann mit dem folgenden Befehl geschehen:
+Bevor das Programm ausgeführt wird, müssen auch die entsprechenden verwendeten Bibliotheken installiert werden. Alle Bibliotheken, die im Voraus installiert werden müssen, sind im requirements.txt abgelegt.
+
 
 ``
     pip install -r requirements.txt
 ``
 
-Die Bibliothek Pillow ist eine Abspaltung von PIL, der Python Imaging Library, und wird in diesem Programm für die Bildmanipulation verwendet.
-Zusätzlich muss die Bibliothek skit installiert werden. 
+Die im Code verwendeten Bibliotheken sind:
+- PIL (Python Imaging Library): Für die Bildverarbeitung, insbesondere zum Öffnen von Bildern.
+- imagehash: Eine Bibliothek zur Berechnung von Hash-Werten für Bilder.
+- os: Eine integrierte Python-Bibliothek, die Operationen auf dem Betriebssystem ermöglicht, hier insbesondere für Datei- und Verzeichnisoperationen.
+- tkinter: Die Standard-GUI-Bibliothek für Python, die für die Erstellung der grafischen Benutzeroberfläche (GUI) verwendet wird.
 
-
+Diese Bibliotheken werden für die Erstellung einer GUI-Anwendung zur Duplikatserkennung von Bildern verwendet.
 Nachdem diese Schritte abgeschlossen sind, kann der Benutzer das Programm durch Ausführen des oben genannten python-Befehls starten.
-
-Alle Abhängigkeiten, die im Voraus installiert werden müssen, sind im requirements.txt abgelegt.
 
 
 ## Verstehen der Quelle
