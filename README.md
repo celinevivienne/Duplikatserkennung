@@ -64,9 +64,12 @@ Mit dem Entfernen der Duplikate wird der Benutzer automatisch beim Organisieren/
 ### Projektstruktur
 
 Das Hauptprogramm besteht aus drei Klassen: InputWindow, DuplicateFinder und OutputWindow.
-InputWindow kümmert sich um die Benutzeroberfläche (GUI) für die Eingabe des Ordners mit den zu prüfenden Bildern.
-DuplicateFinder ist für die eigentliche Duplikatserkennung verantwortlich. Es gibt bereits eine Implementierung für die Hash-basierte Duplikatserkennung (find_duplicates_hash). Es gibt auch Platzhalter-Funktionen (ausgeklammert), die für zusätzliche Duplikatserkennungsmethoden verwendet werden könnten.
-OutputWindow zeigt die Ergebnisse der Duplikatserkennung in einem neuen Fenster an.
+
+> InputWindow kümmert sich um die Benutzeroberfläche (GUI) für die Eingabe des Ordners mit den zu prüfenden Bildern.
+
+> DuplicateFinder ist für die eigentliche Duplikatserkennung verantwortlich. Es gibt bereits eine Implementierung für die Hash-basierte Duplikatserkennung (find_duplicates_hash). Es gibt auch Platzhalter-Funktionen (ausgeklammert), die für zusätzliche Duplikatserkennungsmethoden verwendet werden könnten.
+
+> OutputWindow zeigt die Ergebnisse der Duplikatserkennung in einem neuen Fenster an.
 
 ### Funktionsweise
 
@@ -77,6 +80,8 @@ Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und d
 
 ### Erweiterungen
 
+1. Die Bilderkennungssoftware soll um **Cloud-Anbindung** erweitert werden, um Benutzern Zugriff auf ihre in der Cloud gespeicherten Bilder zu ermöglichen.
+2. Es wird angestrebt, eine **mobile Anwendung** zu implementieren, die eine ansprechende Benutzeroberfläche bietet und es Nutzern erlaubt, Duplikate auf ihren Mobilgeräten einfach zu erkennen und zu organisieren.
 
 
 
