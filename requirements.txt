@@ -15,8 +15,9 @@
 #pyinstaller==6.1.0
 # Hier externe Bilbiotheken ergänzen... 
 
-black==22.10.0
-flake8==4.0.1
-pep8-naming==0.13.2
-ImageHash==4.3.1
-Pillow==10.1.0
+black
+flake8
+pep8-naming
+ImageHash
+Pillow
+scikit-image
