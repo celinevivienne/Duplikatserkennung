@@ -25,21 +25,25 @@ documentation when looking at your project online.
 
 ## Get started
 
-Explain what the user has to type to get started with your solution. Which one
-is the main Python file? In the simplest case, this could look something like
-this:
+Um das Python-Programm zu starten, sollte der Benutzer die Datei mit dem Hauptcode ausführen. In diesem Fall ist die Hauptdatei diejenige, die die GUI initialisiert und das Hauptprogramm startet. Das ist die Datei, die die tkinter-Bibliothek verwendet.
 
-``
-    python main.py
-``
+Die Benutzer sollten in der Kommandozeile (Terminal) den folgenden Befehl ausführen, um das Programm zu starten:
 
-In other cases the user might first have to install some project dependencies
-first has to run something like this (a sample requirements.txt file is also
-included in the project template):
+python main.py
 
-``
-    pip install -r requirements.txt
-``
+Bevor das Programm ausgeführt wird, müssen auch die Abhängigkeiten installiert werden. Dies kann mit dem folgenden Befehl geschehen:
+
+pip install Pillow
+pip install scikit-image
+
+Die Bibliothek Pillow ist eine Abspaltung von PIL, der Python Imaging Library, und wird in diesem Programm für die Bildmanipulation verwendet.
+Zusätzlich muss die Bibliothek skit installiert werden. 
+
+
+Nachdem diese Schritte abgeschlossen sind, kann der Benutzer das Programm durch Ausführen des oben genannten python-Befehls starten.
+
+Alle Abhängigkeiten, die im Voraus installiert werden müssen, sind im requirements.txt abgelegt.
+
 
 ## Understanding the sources --> Hier erläutern, wie Projekt grob aufgebaut ist
 
