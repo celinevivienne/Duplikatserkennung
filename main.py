@@ -9,16 +9,35 @@ import os
 import numpy as np
 
 class InputWindow:
+ 
+   
     def __init__(self,window):
         # Initialisieren von GUI-Komponenten
         self.window = window
         self.window.title("Duplikatserkennung")
+        
+        # Fenstergröße festlegen (Eingefügt Kusi 1.12.23)
+        window_width = 800
+        window_height = 600
+        self.window.geometry(f"{window_width}x{window_height}")
+
+        # Bildschirmauflösung ermitteln
+        screen_width = self.window.winfo_screenwidth()
+        screen_height = self.window.winfo_screenheight()
+
+        # Berechnen der x und y Koordinaten, um das Fenster in der Mitte des Bildschirms zu zentrieren
+        x = int((screen_width / 2) - (window_width / 2))
+        y = int((screen_height / 2) - (window_height / 2))
+
+        # Fensterposition einstellen, um es in der Mitte des Bildschirms zu platzieren
+        self.window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
         # Ordner auswählen
+        
         self.description = ttk.Label(
             window, text="Bitte wähle den Ordner mit den zu prüfenden Bildern:"
         )
-        self.description.pack(pady=1)
+        self.description.pack(pady=(100, 1)) #100, 1 eingefügt Kusi 1.12.23
 
         # Ordner öffenen (Knopf)
         self.selectPath = ttk.Button(
@@ -57,6 +76,7 @@ class InputWindow:
         # Variable zum speichern des ausgewählten Pfades
         self.selectFilePath = None
 
+
     def select_folder(self):
         file_path = filedialog.askdirectory()
         if file_path:
@@ -68,6 +88,10 @@ class InputWindow:
             self.window.destroy()
             # Übergeben Sie method_var und threshold_var an die OutputWindow-Klasse
             OutputWindow(self.selectFilePath, self.method_var, self.threshold_var).run()
+
+
+
+ 
 
 class DuplicateFinder:
     def __init__(self, path):
