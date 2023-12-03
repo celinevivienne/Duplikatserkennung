@@ -79,6 +79,24 @@ Das Programm verwendet die DuplicateFinder-Klasse, um Duplikate in diesem Ordner
 Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und die Pillow-Bibliothek für die Bildverarbeitung. Die Hash-basierte Methode vergleicht Bilder anhand ihrer durchschnittlichen Hash-Werte.
 
 #### Clean Code
+In Bezug auf Clean Code haben wir folgendes umgesetzt: 
+– Gemeinsame Funktionalität in eigene Funktionen und Klassen ausgelagert
+– Weglassen, was aktuell wirklich nicht gebraucht wird
+– Unverständlicher Code korrigiert
+– Regeln für die Benennung von Variablen und Klassen vereinbart
+– Nur Kommentare verwendet, wo dies nicht anders möglich ist
+– Vor einem Checkin haben wir den Code durch eine zweite Person überprüft (4-Augen-Prinzip)
+– Pair Programming
+– Diagramme der beteiligten Komponenten gezeichnet, Abläufe skizziert
+– Die Argumente der Label-Funktion sind auf separate Zeilen aufgeteilt, um die Lesbarkeit zu verbessern.
+– Namenskonvention: Snake Casefunctions meine_funktion oder class benutzer_verwaltungNamen, die die Absicht und Verwendung der Variable klar widerspiegeln → aussagekräftig. 
+– Abgekürzte oder unklare Namen werden vermieden. Single-Letter-Namen werden vermieden. Klarheit geht vor Kürze.
+– Vermeidund von magischen Zahlen: Wir benutzen Konstanten für magische Zahlen, um dem Code Lesbarkeit zu verleihen.
+– Sprache: Englisch
+<img width="2374" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/512876ca-7dce-4c3c-b2f9-c1c8ab714e38">
+
+<img width="1707" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/e68dca1a-4118-447e-b157-def64efaa757">
+
 
 #### Version Control 
 
