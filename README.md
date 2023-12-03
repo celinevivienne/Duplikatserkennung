@@ -83,6 +83,27 @@ Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und d
 #### Version Control 
 
 #### Testing
+Erster Testlauf: Duplikatserkennung in Python
+
+Wir haben unsere Duplikatserkennungssoftware einem ersten Test unterzogen, um die Effektivität und Genauigkeit unter verschiedenen Bedingungen zu bewerten. Hier sind die Testfälle, die wir durchgeführt haben:
+
+Graustufen- und Duplex-Bilder: Die Software wurde darauf getestet, Duplikate zu erkennen, die in Graustufen konvertiert wurden sowie in Duplex-Modus, der nur zwei Farbtöne verwendet.
+
+Gedrehte Bilder: Die Erkennung wurde mit Bildern durchgeführt, die um verschiedene Winkel gedreht wurden, um die Robustheit gegenüber Orientierungsänderungen zu überprüfen.
+
+Bilder mit Zusätzen: Getestet wurde auch, ob die Software kleine Änderungen wie gekritzelte Linien auf den Bildern erkennen kann.
+
+Verschiedene Auflösungen: Die Duplikatserkennung wurde auf Bilder mit unterschiedlichen Auflösungen angewendet, um die Skalierbarkeit der Software zu testen.
+
+Transparenz: Es wurde überprüft, ob die Software Duplikate ohne Hintergrund, also mit transparenten Bereichen, erkennen kann.
+
+Leicht abweichende Bilder: Schliesslich wurde die Fähigkeit der Software getestet, ähnliche, aber nicht identische Bilder zu identifizieren.
+
+Die Ergebnisse dieser Tests geben Aufschluss über die Anpassungsfähigkeit und Genauigkeit unserer Software und liefern wichtige Erkenntnisse für die weitere Optimierung.
+
+Die Duplikatserkennungssoftware hat in unserem ersten Testlauf gute Ergebnisse gezeigt und nahezu alle gestellten Aufgaben mit einer Erfolgsrate von 100% gemeistert. Einzig bei der Unterscheidung zwischen identischen und ähnlichen Bildern gab es Herausforderungen, die nicht vollständig erfolgreich waren. 
+Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem zweiten Testlauf auch die ähnlichen Bilder erkannt wurden. Dafür wurde der Schwellwert auf 70% reduziert. Anschliessend wurden sogar die ähnlichen Fotos von der Software erkannt
+
 
 ### Erweiterungen
 
