@@ -132,7 +132,7 @@ Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem z
 
 ### Lessons learned
 - Einrichten der Console: Die korrekte Einrichtung der Entwicklungskonsole ist entscheidend. Wir haben gelernt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
-- Keine Grossbuchstaben bei Funktionen: In Python sind Funktionen üblicherweise in Snake Case (z.B. meine_funktion) und nicht in Camel Case oder mit Großbuchstaben. 
+- Keine Grossbuchstaben bei Funktionen: In Python sind Funktionen üblicherweise in Snake Case (z.B. meine_funktion) und nicht in Camel Case oder mit Grossbuchstaben. 
 
 
 
