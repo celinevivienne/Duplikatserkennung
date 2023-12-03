@@ -80,19 +80,19 @@ Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und d
 
 #### Clean Code
 In Bezug auf Clean Code haben wir folgendes umgesetzt: 
-– Gemeinsame Funktionalität in eigene Funktionen und Klassen ausgelagert
-– Weglassen, was aktuell wirklich nicht gebraucht wird
-– Unverständlicher Code korrigiert
-– Regeln für die Benennung von Variablen und Klassen vereinbart
-– Nur Kommentare verwendet, wo dies nicht anders möglich ist
-– Vor einem Checkin haben wir den Code durch eine zweite Person überprüft (4-Augen-Prinzip)
-– Pair Programming
-– Diagramme der beteiligten Komponenten gezeichnet, Abläufe skizziert
-– Die Argumente der Label-Funktion sind auf separate Zeilen aufgeteilt, um die Lesbarkeit zu verbessern.
-– Namenskonvention: Snake Casefunctions meine_funktion oder class benutzer_verwaltungNamen, die die Absicht und Verwendung der Variable klar widerspiegeln → aussagekräftig. 
-– Abgekürzte oder unklare Namen werden vermieden. Single-Letter-Namen werden vermieden. Klarheit geht vor Kürze.
-– Vermeidund von magischen Zahlen: Wir benutzen Konstanten für magische Zahlen, um dem Code Lesbarkeit zu verleihen.
-– Sprache: Englisch
+- Gemeinsame Funktionalität in eigene Funktionen und Klassen ausgelagert
+- Weglassen, was aktuell wirklich nicht gebraucht wird
+- Unverständlicher Code korrigiert
+- Regeln für die Benennung von Variablen und Klassen vereinbart
+- Nur Kommentare verwendet, wo dies nicht anders möglich ist
+- Vor einem Checkin haben wir den Code durch eine zweite Person überprüft (4-Augen-Prinzip)
+- Pair Programming
+- Diagramme der beteiligten Komponenten gezeichnet, Abläufe skizziert
+- Die Argumente der Label-Funktion sind auf separate Zeilen aufgeteilt, um die Lesbarkeit zu verbessern.
+- Namenskonvention: Snake Casefunctions meine_funktion oder class benutzer_verwaltungNamen, die die Absicht und Verwendung der Variable klar widerspiegeln → aussagekräftig. 
+- Abgekürzte oder unklare Namen werden vermieden. Single-Letter-Namen werden vermieden. Klarheit geht vor Kürze.
+- Vermeidund von magischen Zahlen: Wir benutzen Konstanten für magische Zahlen, um dem Code Lesbarkeit zu verleihen.
+- Sprache: Englisch
 
 #### Version Control 
 
@@ -101,17 +101,17 @@ Erster Testlauf: Duplikatserkennung in Python
 
 Wir haben unsere Duplikatserkennungssoftware einem ersten Test unterzogen, um die Effektivität und Genauigkeit unter verschiedenen Bedingungen zu bewerten. Hier sind die Testfälle, die wir durchgeführt haben:
 
-Graustufen- und Duplex-Bilder: Die Software wurde darauf getestet, Duplikate zu erkennen, die in Graustufen konvertiert wurden sowie in Duplex-Modus, der nur zwei Farbtöne verwendet.
+- Graustufen- und Duplex-Bilder: Die Software wurde darauf getestet, Duplikate zu erkennen, die in Graustufen konvertiert wurden sowie in Duplex-Modus, der nur zwei Farbtöne verwendet.
 
-Gedrehte Bilder: Die Erkennung wurde mit Bildern durchgeführt, die um verschiedene Winkel gedreht wurden, um die Robustheit gegenüber Orientierungsänderungen zu überprüfen.
+- Gedrehte Bilder: Die Erkennung wurde mit Bildern durchgeführt, die um verschiedene Winkel gedreht wurden, um die Robustheit gegenüber Orientierungsänderungen zu überprüfen.
 
-Bilder mit Zusätzen: Getestet wurde auch, ob die Software kleine Änderungen wie gekritzelte Linien auf den Bildern erkennen kann.
+- Bilder mit Zusätzen: Getestet wurde auch, ob die Software kleine Änderungen wie gekritzelte Linien auf den Bildern erkennen kann.
 
-Verschiedene Auflösungen: Die Duplikatserkennung wurde auf Bilder mit unterschiedlichen Auflösungen angewendet, um die Skalierbarkeit der Software zu testen.
+- Verschiedene Auflösungen: Die Duplikatserkennung wurde auf Bilder mit unterschiedlichen Auflösungen angewendet, um die Skalierbarkeit der Software zu testen.
 
-Transparenz: Es wurde überprüft, ob die Software Duplikate ohne Hintergrund, also mit transparenten Bereichen, erkennen kann.
+- Transparenz: Es wurde überprüft, ob die Software Duplikate ohne Hintergrund, also mit transparenten Bereichen, erkennen kann.
 
-Leicht abweichende Bilder: Schliesslich wurde die Fähigkeit der Software getestet, ähnliche, aber nicht identische Bilder zu identifizieren.
+- Leicht abweichende Bilder: Schliesslich wurde die Fähigkeit der Software getestet, ähnliche, aber nicht identische Bilder zu identifizieren.
 
 Die Ergebnisse dieser Tests geben Aufschluss über die Anpassungsfähigkeit und Genauigkeit unserer Software und liefern wichtige Erkenntnisse für die weitere Optimierung.
 
