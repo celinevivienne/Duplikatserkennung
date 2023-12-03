@@ -89,8 +89,9 @@ In Bezug auf Clean Code haben wir folgendes umgesetzt:
 - Pair Programming
 - Diagramme der beteiligten Komponenten gezeichnet, Abläufe skizziert
 - Die Argumente der Label-Funktion sind auf separate Zeilen aufgeteilt, um die Lesbarkeit zu verbessern.
-- Namenskonvention: Snake Casefunctions meine_funktion oder class benutzer_verwaltungNamen, die die Absicht und Verwendung der Variable klar widerspiegeln
-- Abgekürzte oder unklare Namen werden vermieden. Single-Letter-Namen werden vermieden. Klarheit geht vor Kürze.
+- Namenskonvention: Snake Case: functions meine_funktion oder class benutzer_verwaltung
+- Namen, die die Absicht und Verwendung der Variable klar widerspiegeln
+- Abgekürzte oder unklare Namen werden vermieden. Single-Letter-Namen werden vermieden. Klarheit geht vor Kürze.
 - Vermeidund von magischen Zahlen: Wir benutzen Konstanten für magische Zahlen, um dem Code Lesbarkeit zu verleihen.
 - Sprache: Englisch
 
