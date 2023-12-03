@@ -97,6 +97,10 @@ In Bezug auf Clean Code haben wir folgendes umgesetzt:
 
 #### Version Control 
 
+### Sequenzdiagramm
+<img width="941" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/96a1a72b-5fa8-4ba0-8432-8e6237e0adf8">
+
+
 #### Testing
 Erster Testlauf: Duplikatserkennung in Python
 
@@ -126,9 +130,11 @@ Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem z
 2. Es wird angestrebt, eine **mobile Anwendung** zu implementieren, die eine ansprechende Benutzeroberfläche bietet und es Nutzern erlaubt, Duplikate auf ihren Mobilgeräten einfach zu erkennen und zu organisieren.
 3. Zudem wird angestrebt, das **GUI** noch etwas zu verschönern und zu verbessern, damit das UX noch benutzerfreundlicher und attraktiver wird. 
 
+### Lessons learned
+- Einrichten der Console: Die korrekte Einrichtung der Entwicklungskonsole ist entscheidend. Wir haben gelernt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
+- Keine Grossbuchstaben bei Funktionen: In Python sind Funktionen üblicherweise in Snake Case (z.B. meine_funktion) und nicht in Camel Case oder mit Großbuchstaben. 
 
-### Sequenzdiagramm
-<img width="941" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/96a1a72b-5fa8-4ba0-8432-8e6237e0adf8">
+
 
 **löschen**
 Explain any high level concepts that you are using in your software. What were
