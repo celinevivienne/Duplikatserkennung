@@ -109,6 +109,7 @@ Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem z
 
 1. Die Bilderkennungssoftware soll um **Cloud-Anbindung** erweitert werden, um Benutzern Zugriff auf ihre in der Cloud gespeicherten Bilder zu ermöglichen.
 2. Es wird angestrebt, eine **mobile Anwendung** zu implementieren, die eine ansprechende Benutzeroberfläche bietet und es Nutzern erlaubt, Duplikate auf ihren Mobilgeräten einfach zu erkennen und zu organisieren.
+3. Zudem wird angestrebt, das **GUI** noch etwas zu verschönern und zu verbessern, damit das UX noch benutzerfreundlicher und attraktiver wird. 
 
 
 ### Sequenzdiagramm
