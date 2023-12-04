@@ -16,7 +16,7 @@ class InputWindow:
         self.window = window
         self.window.title("Duplikatserkennung")
         
-        # Fenstergröße festlegen (Eingefügt Kusi 1.12.23)
+        # Fenstergröße festlegen
         window_width = 800
         window_height = 600
         self.window.geometry(f"{window_width}x{window_height}")
@@ -25,11 +25,11 @@ class InputWindow:
         screen_width = self.window.winfo_screenwidth()
         screen_height = self.window.winfo_screenheight()
 
-        # Berechnen der x und y Koordinaten, um das Fenster in der Mitte des Bildschirms zu zentrieren (Eingefügt Kusi 1.12.23)
+        # Berechnen der x und y Koordinaten, um das Fenster in der Mitte des Bildschirms zu zentrieren
         x = int((screen_width / 2) - (window_width / 2))
         y = int((screen_height / 2) - (window_height / 2))
 
-        # Fensterposition einstellen, um es in der Mitte des Bildschirms zu platzieren (Eingefügt Kusi 1.12.23)
+        # Fensterposition einstellen, um es in der Mitte des Bildschirms zu platzieren
         self.window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
         # Ordner auswählen
@@ -37,7 +37,7 @@ class InputWindow:
         self.description = ttk.Label(
             window, text="Bitte wähle den Ordner mit den zu prüfenden Bildern:"
         )
-        self.description.pack(pady=(100, 1)) #100, 1 eingefügt Kusi 1.12.23 (Eingefügt Kusi 1.12.23)
+        self.description.pack(pady=(100, 1))
 
         # Ordner öffenen (Knopf)
         self.selectPath = ttk.Button(
@@ -77,6 +77,12 @@ class InputWindow:
         self.selectFilePath = None
 
 
+        # Fortschrittsanzeige-Widget hinzufügen
+        self.progress_bar = ttk.Progressbar(
+            self.window, orient="horizontal", length=300, mode="determinate"
+        )
+        self.progress_bar.pack_forget()  # Zuerst verstecken
+
 
     def select_folder(self):
         file_path = filedialog.askdirectory()
@@ -86,10 +92,18 @@ class InputWindow:
 
     def adopt_folder(self):
         if self.selectFilePath:
-            self.window.destroy()
-            # Übergeben Sie method_var und threshold_var an die OutputWindow-Klasse
-            OutputWindow(self.selectFilePath, self.method_var, self.threshold_var).run()
 
+            file_count = len([name for name in os.listdir(self.selectFilePath)
+                              if os.path.isfile(os.path.join(self.selectFilePath, name))])
+            self.progress_bar['maximum'] = file_count
+            self.progress_bar.pack(pady=20)
+            self.progress_bar['value'] = 0
+            self.window.update_idletasks()
+            OutputWindow(self.selectFilePath, self.method_var.get(), self.threshold_var.get(), self.progress_bar).run()
+
+        '''self.window.destroy()
+            # Übergeben Sie method_var und threshold_var an die OutputWindow-Klasse
+        OutputWindow(self.selectFilePath, self.method_var, self.threshold_var).run()'''
 
 
  
@@ -98,7 +112,32 @@ class DuplicateFinder:
     def __init__(self, path):
         self.path = path
 
-    def find_duplicates_hash(self):
+    def find_duplicates_hash(self, update_progress_callback=None):
+        hashes = {}
+        duplicates = []
+        supported_formats = (".png", ".jpg", ".jpeg", ".gif", ".bmp")
+        file_names = [f for f in os.listdir(self.path) if os.path.isfile(os.path.join(self.path, f))]
+        total_files = len(file_names)
+
+        for i, filename in enumerate(file_names):
+            if filename.lower().endswith(supported_formats):
+                filepath = os.path.join(self.path, filename)
+                try:
+                    with Image.open(filepath) as img:
+                        h = imagehash.average_hash(img)
+                        if h in hashes:
+                            duplicates.append((filename, os.path.basename(hashes[h])))
+                        else:
+                            hashes[h] = filepath
+                except Exception as e:
+                    print(f"Fehler beim Lesen von {filename}: {e}")
+
+                if update_progress_callback:
+                    update_progress_callback(i + 1, total_files)
+
+        return duplicates
+
+    '''def find_duplicates_hash(self):
         hashes = {}
         duplicates = []
 
@@ -115,9 +154,41 @@ class DuplicateFinder:
                                 hashes[h] = filepath
                     except Exception as e:
                         print(f"Fehler beim Lesen von {filename}: {e}")
-        return duplicates
+        return duplicates'''
 
-    def find_duplicates_structure(self, similarity_threshold):
+    def find_duplicates_structure(self, similarity_threshold, update_progress_callback=None):
+        images = {}
+        duplicates = []
+        supported_formats = (".png", ".jpg", ".jpeg", ".gif", ".bmp")
+        file_names = [f for f in os.listdir(self.path) if os.path.isfile(os.path.join(self.path, f))]
+        total_files = len(file_names)
+
+        for i, filename in enumerate(file_names):
+            if filename.lower().endswith(supported_formats):
+                filepath = os.path.join(self.path, filename)
+                try:
+                    img = io.imread(filepath)
+                    img = resize(img, (128, 128), anti_aliasing=True)
+                    img_gray = color.rgb2gray(img)
+
+                    for existing_img, existing_img_path in images.values():
+                        data_range = existing_img.max() - existing_img.min()
+                        similarity = structural_similarity(existing_img, img_gray, data_range=data_range)
+                        if similarity > similarity_threshold:
+                            duplicates.append((filename, os.path.basename(existing_img_path)))
+                            break
+                    else:
+                        images[filename] = (img_gray, filepath)
+                except Exception as e:
+                    print(f"Fehler beim Lesen von {filename}: {e}")
+
+                if update_progress_callback:
+                    update_progress_callback(i + 1, total_files)
+            
+
+        return duplicates
+    
+    '''def find_duplicates_structure(self, similarity_threshold):
         images = {}
         duplicates = []
 
@@ -147,17 +218,37 @@ class DuplicateFinder:
 
                     except Exception as e:
                         print(f"Fehler beim Lesen von {filename}: {e}")
-        return duplicates
+        return duplicates'''
+
 
 class OutputWindow:
-    def __init__(self, path, method_var, threshold_var):
+    def __init__(self, path, method, threshold, progress_bar):
         self.window = tk.Tk()
         self.window.title("Ergebnisse")
-        self.method_var = method_var  # Übergeben Sie method_var
-        self.threshold_var = threshold_var  # Übergeben Sie threshold_var
+
+        self.method = method  # Übergeben Sie method_var 
+        self.threshold = threshold  # Übergeben Sie threshold_var
+        self.progress_bar = progress_bar
+        
         self.show_duplicates_images(path)
 
+
     def show_duplicates_images(self, path):
+        finder = DuplicateFinder(path)
+        if self.method == "Hash basierte Erkennung":
+            duplicates = finder.find_duplicates_hash(self.update_progress_bar)
+        elif self.method == "Struktur basierte Erkennung":
+            duplicates = finder.find_duplicates_structure(self.threshold, self.update_progress_bar)
+        else:
+            duplicates = []
+
+        if duplicates:
+            self.show_duplicates(duplicates)
+        else:
+            self.display_message("Keine Duplikate gefunden!")
+
+
+    '''def show_duplicates_images(self, path):
         finder = DuplicateFinder(path)
         method = self.method_var.get()  # Zugriff auf method_var-Wert
         threshold = self.threshold_var.get()  # Zugriff auf threshold_var-Wert
@@ -171,7 +262,7 @@ class OutputWindow:
         if duplicates:
             self.show_duplicates(duplicates)
         else:
-            self.display_message("Keine Duplikate gefunden!")
+            self.display_message("Keine Duplikate gefunden!")'''
 
     def display_message(self, message):
         label = ttk.Label(self.window, text=message)
@@ -186,6 +277,16 @@ class OutputWindow:
 
     def run(self):
         self.window.mainloop()
+
+    
+    def update_progress_bar(self, current, total):
+        print(f"Updating progress: {current}/{total}")  # Zum Debuggen
+        self.progress_bar['value'] = current
+        self.window.update_idletasks() # Stellen Sie sicher, dass die GUI aktualisiert wird
+        '''if current == total:
+            self.progress_bar['value'] = 100  # Erzwingen Sie, dass der Fortschrittsbalken auf 100% gesetzt wird'''
+
+    
 
 ###############################################################################################################################
 

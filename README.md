@@ -1,6 +1,8 @@
 # Duplikatserkennung
 ## Konzipierung und Entwicklung einer Software, welche für die Identifizierung von Duplikaten von Bildern verwendet werden kann
 
+### Ziele
+
 Die vorliegende Arbeit verfolgt das zentrale Ziel, eine effiziente Python-Software zu entwickeln, die in der Lage ist, Duplikate in Bildern zu erkennen. Der Fokus liegt dabei auf der praktischen Anwendung von Python, insbesondere im Kontext des Bildverarbeitungsbereichs. Diese Software wurde gezielt konzipiert, um Studierenden eine praxisorientierte Lernumgebung zu bieten, in der sie ihre Python-Kenntnisse vertiefen und gleichzeitig Einblicke in die Herausforderungen der Bilderkennung gewinnen können.
 
 Im Rahmen dieser Arbeit werden folgende spezifischen Ziele verfolgt: 
@@ -13,17 +15,21 @@ Im Rahmen dieser Arbeit werden folgende spezifischen Ziele verfolgt:
 - Kollaborative Entwicklung mit Pair Programming: Die Studierenden arbeiten in Paaren, um die Entwicklung zu beschleunigen und sicherzustellen, dass bestmöglicher Code entsteht. 
 - Unittesting: Die Softwareentwicklung sollte Testfälle erstellen und Unittesting durchführen, um sicherzustellen, dass die Software ordnungsgemäss funktioniert.
 
+### Zielgruppe
+- Fotografen
+- Alle, die eine digitale Bildersammlung haben
+
   
 ### Anforderungen an die Software
 
-| Priorität | Anforderung | Kurzbeschreibung |
-|----------|----------|----------|
-| Muss | Datenzugriff | Die Software sollte sowohl den lokalen Datenzugriff (z. B. von der Festplatte) als auch den Datenzugriff in der Cloud (z. B. von Cloud-Speicherdiensten) unterstützen.  |
-| Muss | Dublikatserkennung | Die Software sollte in der Lage sein, Duplikate nicht nur anhand des Dateinamens, sondern auch anhand des Bildinhalts (auf Pixelbasis) zu erkennen, um wirklich identische Bilder zu identifizieren. |
-| Muss | Duplikatliste erstellen | Nach der Identifizierung von Duplikaten sollten diese in einer übersichtlichen Liste angezeigt werden, um den Benutzern die Überprüfung zu erleichtern. |
-| Muss | Benutzeroberfläche | Die Benutzeroberfläche sollte eine benutzerfreundliche Möglichkeit bieten, Ordner auszuwählen und dem Benutzer ermöglichen, diese Ordner einfach hinzuzufügen oder zu entfernen.  |
-| Kann | Möglichkeit zum Löschen von Duplikaten | Die Software sollte dem Benutzer die Möglichkeit bieten, Duplikate sicher zu löschen.|
-| Kann | Ähnliche Bilder anzeigen| Die Software sollte in der Lage sein, ähnliche Bilder zu identifizieren und dem Benutzer eine Liste dieser ähnlichen Bilder zur Verfügung stellen, basierend auf visuellen Ähnlichkeiten.|
+| Nr. | Gruppierung | Kurzbeschreibung | Priorität | Beschreibung  | Softwareversion |
+|----------|----------|----------|----------|----------|----------|
+|1|Bildverarbeitung|Bilder öffnen und analysieren|1 – MUSS|Die Software sollte in der Lage sein, Bilder vom lokalen Computer zu öffnen und deren Eigenschaften zu analysieren. Dies ist die Grundlage für die Duplikatserkennung.|1.0|
+|2|Duplikatserkennung|Duplikate mithilfe von Bildhashing identifizieren|1 – MUSS|Die Software sollte Bilder in eindeutige Hashwerte umwandeln und diese Hashwerte vergleichen, um Duplikate zu identifizieren.|1.0|
+|3|Duplikatliste|Duplikatliste erstellen|1 – MUSS|Nach der Identifizierung von Duplikaten sollten diese in einer übersichtlichen Liste angezeigt werden, um den Benutzern die Überprüfung zu erleichtern.|1.0|
+|4|Benutzeroberfläche|Entwickeln einer Benutzeroberfläche|1 – MUSS|Die Software sollte eine Benutzeroberfläche für Benutzer bereitstellen, um die Anwendung zu steuern und Ergebnisse anzuzeigen.|1.0|
+|5|Ähnliche Dateien|Identifizieren ähnlicher Dateien|3 – KANN|Die Software kann in der Lage sein, nicht nur Duplikate, sondern auch ähnliche Dateien basierend auf Bildinhalt oder Metadaten zu identifizieren.|2.0|
+
 
 ## Los geht's
 
@@ -47,6 +53,7 @@ Die im Code verwendeten Bibliotheken sind:
 - imagehash: Eine Bibliothek zur Berechnung von Hash-Werten für Bilder.
 - os: Eine integrierte Python-Bibliothek, die Operationen auf dem Betriebssystem ermöglicht, hier insbesondere für Datei- und Verzeichnisoperationen.
 - tkinter: Die Standard-GUI-Bibliothek für Python, die für die Erstellung der grafischen Benutzeroberfläche (GUI) verwendet wird.
+- scikit-image: Scikit-image ist eine Open-Source-Bibliothek für die Programmiersprache Python, die hauptsächlich für die Bildverarbeitung und -analyse verwendet wird.
 
 Diese Bibliotheken werden für die Erstellung einer GUI-Anwendung zur Duplikatserkennung von Bildern verwendet.
 Nachdem diese Schritte abgeschlossen sind, kann der Benutzer das Programm durch Ausführen des oben genannten python-Befehls starten.
@@ -78,7 +85,7 @@ Das Programm verwendet die DuplicateFinder-Klasse, um Duplikate in diesem Ordner
 
 Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und die Pillow-Bibliothek für die Bildverarbeitung. Die Hash-basierte Methode vergleicht Bilder anhand ihrer durchschnittlichen Hash-Werte.
 
-#### Clean Code
+### Clean Code
 In Bezug auf Clean Code haben wir folgendes umgesetzt: 
 - Gemeinsame Funktionalität in eigene Funktionen und Klassen ausgelagert
 - Weglassen, was aktuell wirklich nicht gebraucht wird
@@ -95,7 +102,7 @@ In Bezug auf Clean Code haben wir folgendes umgesetzt:
 - Vermeidund von magischen Zahlen: Wir benutzen Konstanten für magische Zahlen, um dem Code Lesbarkeit zu verleihen.
 - Sprache: Englisch
 
-#### Version Control 
+### Version Control 
 Die Versionsverwaltung ist ein essentielles Instrument in der Softwareentwicklung, das dazu dient, verschiedene Ziele zu erreichen: 
 
 - **Änderungszeitpunkte finden:**
@@ -149,7 +156,10 @@ Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem z
 
 1. Die Bilderkennungssoftware soll um **Cloud-Anbindung** erweitert werden, um Benutzern Zugriff auf ihre in der Cloud gespeicherten Bilder zu ermöglichen.
 2. Es wird angestrebt, eine **mobile Anwendung** zu implementieren, die eine ansprechende Benutzeroberfläche bietet und es Nutzern erlaubt, Duplikate auf ihren Mobilgeräten einfach zu erkennen und zu organisieren.
-3. Zudem wird angestrebt, das **GUI** noch etwas zu verschönern und zu verbessern, damit das UX noch benutzerfreundlicher und attraktiver wird. 
+3. Zudem wird angestrebt, das **GUI** noch etwas zu verschönern und zu verbessern, damit das UX noch benutzerfreundlicher und attraktiver wird.
+4. Bildqualitätsbewertung: Die Software sollte die Bildqualität anhand von Metriken wie Schärfe, Farbintensität und Kontrast bewerten und das Bild mit besserer Qualität behalten.
+5. Möglichkeit zum Löschen von Duplikaten: Die Software sollte dem Benutzer die Möglichkeit bieten, Duplikate sicher zu löschen.
+
 
 ### Lessons learned
 - Einrichten der Console: Die korrekte Einrichtung der Entwicklungskonsole ist entscheidend. Wir haben gelernt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
