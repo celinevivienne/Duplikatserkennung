@@ -101,10 +101,6 @@ class InputWindow:
             self.window.update_idletasks()
             OutputWindow(self.selectFilePath, self.method_var.get(), self.threshold_var.get(), self.progress_bar).run()
 
-        '''self.window.destroy()
-            # Übergeben Sie method_var und threshold_var an die OutputWindow-Klasse
-        OutputWindow(self.selectFilePath, self.method_var, self.threshold_var).run()'''
-
 
  
 
@@ -137,24 +133,7 @@ class DuplicateFinder:
 
         return duplicates
 
-    '''def find_duplicates_hash(self):
-        hashes = {}
-        duplicates = []
 
-        for folder_name, subfolders, file_names in os.walk(self.path):
-            for filename in file_names:
-                if filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".bmp")):
-                    filepath = os.path.join(folder_name, filename)
-                    try:
-                        with Image.open(filepath) as img:
-                            h = imagehash.average_hash(img)
-                            if h in hashes:
-                                duplicates.append((filename, os.path.basename(hashes[h])))
-                            else:
-                                hashes[h] = filepath
-                    except Exception as e:
-                        print(f"Fehler beim Lesen von {filename}: {e}")
-        return duplicates'''
 
     def find_duplicates_structure(self, similarity_threshold, update_progress_callback=None):
         images = {}
@@ -188,37 +167,7 @@ class DuplicateFinder:
 
         return duplicates
     
-    '''def find_duplicates_structure(self, similarity_threshold):
-        images = {}
-        duplicates = []
 
-        for folder_name, subfolders, file_names in os.walk(self.path):
-            for filename in file_names:
-                supported_formats = (".png", ".jpg", ".jpeg", ".gif", ".bmp")
-                if filename.lower().endswith(supported_formats):
-                    filepath = os.path.join(folder_name, filename)
-                    try:
-                        img = io.imread(filepath)
-
-                        # Zuschneiden oder Skalieren der Bilder auf die gleiche Größe (z.B. 128x128)
-                        img = resize(img, (128, 128), anti_aliasing=True) 
-
-                        # Konvertiere das Bild in Graustufen (L-Modus)
-                        img_gray = color.rgb2gray(img)
-                        # Berechnung der strukturellen Ähnlichkeit
-                        for existing_img, existing_img_path in images.values():
-                            data_range = existing_img.max() - existing_img.min()
-                            similarity = structural_similarity(existing_img, img_gray, data_range=data_range)
-                            if similarity > similarity_threshold:
-                                duplicates.append((filename, os.path.basename(existing_img_path)))
-                                break
-                        else:
-                            # Falls keine Duplikate gefunden wurden, fügen Sie das Bild zur images-Datenstruktur hinzu
-                            images[filename] = (img_gray, filepath)
-
-                    except Exception as e:
-                        print(f"Fehler beim Lesen von {filename}: {e}")
-        return duplicates'''
 
 
 class OutputWindow:
@@ -248,21 +197,7 @@ class OutputWindow:
             self.display_message("Keine Duplikate gefunden!")
 
 
-    '''def show_duplicates_images(self, path):
-        finder = DuplicateFinder(path)
-        method = self.method_var.get()  # Zugriff auf method_var-Wert
-        threshold = self.threshold_var.get()  # Zugriff auf threshold_var-Wert
-        if method == "Hash basierte Erkennung":
-            duplicates = finder.find_duplicates_hash()
-        elif method == "Struktur basierte Erkennung":
-            duplicates = finder.find_duplicates_structure(threshold)  # Verwenden Sie threshold als Parameter
-        else:
-            duplicates = []
 
-        if duplicates:
-            self.show_duplicates(duplicates)
-        else:
-            self.display_message("Keine Duplikate gefunden!")'''
 
     def display_message(self, message):
         label = ttk.Label(self.window, text=message)
@@ -283,8 +218,7 @@ class OutputWindow:
         print(f"Updating progress: {current}/{total}")  # Zum Debuggen
         self.progress_bar['value'] = current
         self.window.update_idletasks() # Stellen Sie sicher, dass die GUI aktualisiert wird
-        '''if current == total:
-            self.progress_bar['value'] = 100  # Erzwingen Sie, dass der Fortschrittsbalken auf 100% gesetzt wird'''
+ 
 
     
 
