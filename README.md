@@ -127,7 +127,7 @@ Diese Projektarbeit verwendet GIT als Versionsverwaltungssystem, um Änderungsze
 
 ![Alt text](image-1.png)
 
-![Alt text](image-2.png)
+![Alt text](image-3.png)
 
 ### Sequenzdiagramm
 <img width="941" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/96a1a72b-5fa8-4ba0-8432-8e6237e0adf8">
