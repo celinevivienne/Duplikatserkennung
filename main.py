@@ -101,9 +101,9 @@ class InputWindow:
             self.window.update_idletasks()
             OutputWindow(self.selectFilePath, self.method_var.get(), self.threshold_var.get(), self.progress_bar).run()
 
-            '''self.window.destroy() -> auskommentiert
+        '''self.window.destroy()
             # Übergeben Sie method_var und threshold_var an die OutputWindow-Klasse
-            OutputWindow(self.selectFilePath, self.method_var, self.threshold_var).run() -> auskommentiert'''
+        OutputWindow(self.selectFilePath, self.method_var, self.threshold_var).run()'''
 
 
  
@@ -115,23 +115,25 @@ class DuplicateFinder:
     def find_duplicates_hash(self, update_progress_callback=None):
         hashes = {}
         duplicates = []
+        supported_formats = (".png", ".jpg", ".jpeg", ".gif", ".bmp")
         file_names = [f for f in os.listdir(self.path) if os.path.isfile(os.path.join(self.path, f))]
         total_files = len(file_names)
 
         for i, filename in enumerate(file_names):
-            filepath = os.path.join(self.path, filename)
-            try:
-                with Image.open(filepath) as img:
-                    h = imagehash.average_hash(img)
-                    if h in hashes:
-                        duplicates.append((filename, os.path.basename(hashes[h])))
-                    else:
-                        hashes[h] = filepath
-            except Exception as e:
-                print(f"Fehler beim Lesen von {filename}: {e}")
+            if filename.lower().endswith(supported_formats):
+                filepath = os.path.join(self.path, filename)
+                try:
+                    with Image.open(filepath) as img:
+                        h = imagehash.average_hash(img)
+                        if h in hashes:
+                            duplicates.append((filename, os.path.basename(hashes[h])))
+                        else:
+                            hashes[h] = filepath
+                except Exception as e:
+                    print(f"Fehler beim Lesen von {filename}: {e}")
 
-            if update_progress_callback:
-                update_progress_callback(i + 1, total_files)
+                if update_progress_callback:
+                    update_progress_callback(i + 1, total_files)
 
         return duplicates
 
@@ -157,29 +159,31 @@ class DuplicateFinder:
     def find_duplicates_structure(self, similarity_threshold, update_progress_callback=None):
         images = {}
         duplicates = []
+        supported_formats = (".png", ".jpg", ".jpeg", ".gif", ".bmp")
         file_names = [f for f in os.listdir(self.path) if os.path.isfile(os.path.join(self.path, f))]
         total_files = len(file_names)
 
         for i, filename in enumerate(file_names):
-            filepath = os.path.join(self.path, filename)
-            try:
-                img = io.imread(filepath)
-                img = resize(img, (128, 128), anti_aliasing=True)
-                img_gray = color.rgb2gray(img)
+            if filename.lower().endswith(supported_formats):
+                filepath = os.path.join(self.path, filename)
+                try:
+                    img = io.imread(filepath)
+                    img = resize(img, (128, 128), anti_aliasing=True)
+                    img_gray = color.rgb2gray(img)
 
-                for existing_img, existing_img_path in images.values():
-                    data_range = existing_img.max() - existing_img.min()
-                    similarity = structural_similarity(existing_img, img_gray, data_range=data_range)
-                    if similarity > similarity_threshold:
-                        duplicates.append((filename, os.path.basename(existing_img_path)))
-                        break
-                else:
-                    images[filename] = (img_gray, filepath)
-            except Exception as e:
-                print(f"Fehler beim Lesen von {filename}: {e}")
+                    for existing_img, existing_img_path in images.values():
+                        data_range = existing_img.max() - existing_img.min()
+                        similarity = structural_similarity(existing_img, img_gray, data_range=data_range)
+                        if similarity > similarity_threshold:
+                            duplicates.append((filename, os.path.basename(existing_img_path)))
+                            break
+                    else:
+                        images[filename] = (img_gray, filepath)
+                except Exception as e:
+                    print(f"Fehler beim Lesen von {filename}: {e}")
 
-            if update_progress_callback:
-                update_progress_callback(i + 1, total_files)
+                if update_progress_callback:
+                    update_progress_callback(i + 1, total_files)
             
 
         return duplicates
