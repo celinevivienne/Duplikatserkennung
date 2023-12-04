@@ -229,6 +229,3 @@ if __name__ == "__main__":
     window = tk.Tk()
     gui = InputWindow(window)
     window.mainloop()
-
-
-##### 3.2.1 trop in
