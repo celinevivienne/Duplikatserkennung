@@ -130,7 +130,7 @@ Diese Projektarbeit verwendet GIT als Versionsverwaltungssystem, um Änderungsze
 ![Alt text](image-3.png)
 
 ### Sequenzdiagramm
-<img width="941" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/96a1a72b-5fa8-4ba0-8432-8e6237e0adf8">
+<img width="977" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/771418f6-e7ee-4259-954c-b604e4a45748">
 
 
 #### Testing
