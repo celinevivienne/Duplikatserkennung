@@ -22,14 +22,14 @@ Im Rahmen dieser Arbeit werden folgende spezifischen Ziele verfolgt:
   
 ### Anforderungen an die Software
 
-| Priorität | Anforderung | Kurzbeschreibung |
-|----------|----------|----------|
-| Muss | Datenzugriff | Die Software sollte sowohl den lokalen Datenzugriff (z. B. von der Festplatte) als auch den Datenzugriff in der Cloud (z. B. von Cloud-Speicherdiensten) unterstützen.  |
-| Muss | Dublikatserkennung | Die Software sollte in der Lage sein, Duplikate nicht nur anhand des Dateinamens, sondern auch anhand des Bildinhalts (auf Pixelbasis) zu erkennen, um wirklich identische Bilder zu identifizieren. |
-| Muss | Duplikatliste erstellen | Nach der Identifizierung von Duplikaten sollten diese in einer übersichtlichen Liste angezeigt werden, um den Benutzern die Überprüfung zu erleichtern. |
-| Muss | Benutzeroberfläche | Die Benutzeroberfläche sollte eine benutzerfreundliche Möglichkeit bieten, Ordner auszuwählen und dem Benutzer ermöglichen, diese Ordner einfach hinzuzufügen oder zu entfernen.  |
-| Kann | Möglichkeit zum Löschen von Duplikaten | Die Software sollte dem Benutzer die Möglichkeit bieten, Duplikate sicher zu löschen.|
-| Kann | Ähnliche Bilder anzeigen| Die Software sollte in der Lage sein, ähnliche Bilder zu identifizieren und dem Benutzer eine Liste dieser ähnlichen Bilder zur Verfügung stellen, basierend auf visuellen Ähnlichkeiten.|
+| Nr. | Gruppierung | Kurzbeschreibung | Priorität | Beschreibung  | Softwareversion |
+|----------|----------|----------|----------|----------|----------|
+|1|Bildverarbeitung|Bilder öffnen und analysieren|1 – MUSS|Die Software sollte in der Lage sein, Bilder vom lokalen Computer zu öffnen und deren Eigenschaften zu analysieren. Dies ist die Grundlage für die Duplikatserkennung.|1.0|
+|2|Duplikatserkennung|Duplikate mithilfe von Bildhashing identifizieren|1 – MUSS|Die Software sollte Bilder in eindeutige Hashwerte umwandeln und diese Hashwerte vergleichen, um Duplikate zu identifizieren.|1.0|
+|3|Duplikatliste|Duplikatliste erstellen|1 – MUSS|Nach der Identifizierung von Duplikaten sollten diese in einer übersichtlichen Liste angezeigt werden, um den Benutzern die Überprüfung zu erleichtern.|1.0|
+|4|Benutzeroberfläche|Entwickeln einer Benutzeroberfläche|1 – MUSS|Die Software sollte eine Benutzeroberfläche für Benutzer bereitstellen, um die Anwendung zu steuern und Ergebnisse anzuzeigen.|1.0|
+|5|Ähnliche Dateien|Identifizieren ähnlicher Dateien|3 – KANN|Die Software kann in der Lage sein, nicht nur Duplikate, sondern auch ähnliche Dateien basierend auf Bildinhalt oder Metadaten zu identifizieren.|2.0|
+
 
 ## Los geht's
 
