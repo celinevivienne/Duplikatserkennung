@@ -85,7 +85,7 @@ Das Programm verwendet die DuplicateFinder-Klasse, um Duplikate in diesem Ordner
 
 Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und die Pillow-Bibliothek für die Bildverarbeitung. Die Hash-basierte Methode vergleicht Bilder anhand ihrer durchschnittlichen Hash-Werte.
 
-#### Clean Code
+### Clean Code
 In Bezug auf Clean Code haben wir folgendes umgesetzt: 
 - Gemeinsame Funktionalität in eigene Funktionen und Klassen ausgelagert
 - Weglassen, was aktuell wirklich nicht gebraucht wird
@@ -102,7 +102,7 @@ In Bezug auf Clean Code haben wir folgendes umgesetzt:
 - Vermeidund von magischen Zahlen: Wir benutzen Konstanten für magische Zahlen, um dem Code Lesbarkeit zu verleihen.
 - Sprache: Englisch
 
-#### Version Control 
+### Version Control 
 Die Versionsverwaltung ist ein essentielles Instrument in der Softwareentwicklung, das dazu dient, verschiedene Ziele zu erreichen: 
 
 - **Änderungszeitpunkte finden:**
@@ -156,7 +156,10 @@ Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem z
 
 1. Die Bilderkennungssoftware soll um **Cloud-Anbindung** erweitert werden, um Benutzern Zugriff auf ihre in der Cloud gespeicherten Bilder zu ermöglichen.
 2. Es wird angestrebt, eine **mobile Anwendung** zu implementieren, die eine ansprechende Benutzeroberfläche bietet und es Nutzern erlaubt, Duplikate auf ihren Mobilgeräten einfach zu erkennen und zu organisieren.
-3. Zudem wird angestrebt, das **GUI** noch etwas zu verschönern und zu verbessern, damit das UX noch benutzerfreundlicher und attraktiver wird. 
+3. Zudem wird angestrebt, das **GUI** noch etwas zu verschönern und zu verbessern, damit das UX noch benutzerfreundlicher und attraktiver wird.
+4. Bildqualitätsbewertung: Die Software sollte die Bildqualität anhand von Metriken wie Schärfe, Farbintensität und Kontrast bewerten und das Bild mit besserer Qualität behalten.
+5. Möglichkeit zum Löschen von Duplikaten: Die Software sollte dem Benutzer die Möglichkeit bieten, Duplikate sicher zu löschen.
+
 
 ### Lessons learned
 - Einrichten der Console: Die korrekte Einrichtung der Entwicklungskonsole ist entscheidend. Wir haben gelernt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
