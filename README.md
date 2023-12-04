@@ -96,6 +96,27 @@ In Bezug auf Clean Code haben wir folgendes umgesetzt:
 - Sprache: Englisch
 
 #### Version Control 
+Die Versionsverwaltung ist ein essentielles Instrument in der Softwareentwicklung, das dazu dient, verschiedene Ziele zu erreichen: 
+
+- **Änderungszeitpunkte finden:**
+Versionsverwaltung zeichnet jede Änderung auf.
+Befehle wie "git log" zeigen Änderungsverlauf.
+Wiederherstellen alter Stände:
+
+- **Rückkehr zu vorherigen Codezuständen möglich.**
+"git checkout" oder "git revert" für Rückschritte.
+
+- **Zusammenarbeit vereinfachen:**
+Ermöglicht paralleles Arbeiten mehrerer Entwickler.
+Automatische Merging von Code-Änderungen.
+Branching für unabhängige Feature-Entwicklung.
+
+- **Backup des Source Code:**
+Effizientes Backup-System.
+Jeder Commit repräsentiert stabilen Codezustand.
+Vollständige Historie des Projekts im Repository.
+
+Diese Projektarbeit verwendet GIT als Versionsverwaltungssystem, um Änderungszeitpunkte zu verfolgen, alte Stände wiederherzustellen, die Zusammenarbeit zu erleichtern und einen zuverlässigen Backup-Mechanismus für den Source Code zu gewährleisten. Die Verwendung von Versionsverwaltungssystemen wie Git bietet also nicht nur eine effektive Möglichkeit, den Code zu sichern, sondern verbessert auch die Zusammenarbeit und ermöglicht eine präzise Rückverfolgung von Änderungen im Code.
 
 ### Sequenzdiagramm
 <img width="941" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/96a1a72b-5fa8-4ba0-8432-8e6237e0adf8">
@@ -133,12 +154,3 @@ Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem z
 ### Lessons learned
 - Einrichten der Console: Die korrekte Einrichtung der Entwicklungskonsole ist entscheidend. Wir haben gelernt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
 - Keine Grossbuchstaben bei Funktionen: In Python sind Funktionen üblicherweise in Snake Case (z.B. meine_funktion) und nicht in Camel Case oder mit Grossbuchstaben. 
-
-
-
-**löschen**
-Explain any high level concepts that you are using in your software. What were
-your ideas for creating the whole software? What might not be apparent from the
-sources alone? You can also add diagrams, photos of whiteboards or flipcharts
-or even crudly drawing napkin sketches of the core concepts of your software
-when they are readable and helpful for understanding.
