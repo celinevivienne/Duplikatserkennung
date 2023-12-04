@@ -53,6 +53,7 @@ Die im Code verwendeten Bibliotheken sind:
 - imagehash: Eine Bibliothek zur Berechnung von Hash-Werten für Bilder.
 - os: Eine integrierte Python-Bibliothek, die Operationen auf dem Betriebssystem ermöglicht, hier insbesondere für Datei- und Verzeichnisoperationen.
 - tkinter: Die Standard-GUI-Bibliothek für Python, die für die Erstellung der grafischen Benutzeroberfläche (GUI) verwendet wird.
+- scikit-image: Scikit-image ist eine Open-Source-Bibliothek für die Programmiersprache Python, die hauptsächlich für die Bildverarbeitung und -analyse verwendet wird.
 
 Diese Bibliotheken werden für die Erstellung einer GUI-Anwendung zur Duplikatserkennung von Bildern verwendet.
 Nachdem diese Schritte abgeschlossen sind, kann der Benutzer das Programm durch Ausführen des oben genannten python-Befehls starten.
