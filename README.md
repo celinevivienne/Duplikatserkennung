@@ -125,9 +125,9 @@ Vollständige Historie des Projekts im Repository.
 
 Diese Projektarbeit verwendet GIT als Versionsverwaltungssystem, um Änderungszeitpunkte zu verfolgen, alte Stände wiederherzustellen, die Zusammenarbeit zu erleichtern und einen zuverlässigen Backup-Mechanismus für den Source Code zu gewährleisten. Die Verwendung von Versionsverwaltungssystemen wie Git bietet also nicht nur eine effektive Möglichkeit, den Code zu sichern, sondern verbessert auch die Zusammenarbeit und ermöglicht eine präzise Rückverfolgung von Änderungen im Code.
 
-![Alt text](image-1.png)
+![Alt text](Versionierung.png)
 
-![Alt text](image-3.png)
+![Alt text](Versionierung_Branch.png)
 
 ### Sequenzdiagramm
 <img width="977" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/771418f6-e7ee-4259-954c-b604e4a45748">
