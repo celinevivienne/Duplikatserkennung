@@ -26,7 +26,7 @@ Im Rahmen dieser Arbeit werden folgende spezifischen Ziele verfolgt:
 |----------|----------|----------|----------|----------|----------|
 |1|Bildverarbeitung|Bilder öffnen und analysieren|1 – MUSS|Die Software sollte in der Lage sein, Bilder vom lokalen Computer zu öffnen und deren Eigenschaften zu analysieren. Dies ist die Grundlage für die Duplikatserkennung.|1.0|
 |2|Duplikatserkennung|Duplikate mithilfe von Bildhashing identifizieren|1 – MUSS|Die Software sollte Bilder in eindeutige Hashwerte umwandeln und diese Hashwerte vergleichen, um Duplikate zu identifizieren.|1.0|
-|3|Duplikatliste|Duplikatliste erstellen|1 – MUSS|Nach der Identifizierung von Duplikaten sollten diese in einer übersichtlichen Liste angezeigt werden, um den Benutzern die Überprüfung zu erleichtern.|1.0|
+|3|Duplikatliste|Duplikatliste erstellen und Bilder löschen|1 – MUSS|Nach der Identifizierung von Duplikaten sollten diese in einer übersichtlichen Liste angezeigt werden, um den Benutzern die Überprüfung zu erleichtern und Bilder löschen zu können.|1.0|
 |4|Benutzeroberfläche|Entwickeln einer Benutzeroberfläche|1 – MUSS|Die Software sollte eine Benutzeroberfläche für Benutzer bereitstellen, um die Anwendung zu steuern und Ergebnisse anzuzeigen.|1.0|
 |5|Ähnliche Dateien|Identifizieren ähnlicher Dateien|3 – KANN|Die Software kann in der Lage sein, nicht nur Duplikate, sondern auch ähnliche Dateien basierend auf Bildinhalt oder Metadaten zu identifizieren.|2.0|
 
@@ -100,7 +100,7 @@ In Bezug auf Clean Code haben wir folgendes umgesetzt:
 - Namen, die die Absicht und Verwendung der Variable klar widerspiegeln
 - Abgekürzte oder unklare Namen werden vermieden. Single-Letter-Namen werden vermieden. Klarheit geht vor Kürze.
 - Vermeidund von magischen Zahlen: Wir benutzen Konstanten für magische Zahlen, um dem Code Lesbarkeit zu verleihen.
-- Sprache: Englisch
+- Sprache: Englisch im Code (Funktionen, Klassen, Variablen etc.), Kommentare als Hilfestellung auf Deutsch
 
 ### Version Control 
 Die Versionsverwaltung ist ein essentielles Instrument in der Softwareentwicklung, das dazu dient, verschiedene Ziele zu erreichen: 
@@ -165,4 +165,6 @@ Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem z
 
 ### Lessons learned
 - Einrichten der Console: Die korrekte Einrichtung der Entwicklungskonsole ist entscheidend. Wir haben gelernt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
-- Keine Grossbuchstaben bei Funktionen: In Python sind Funktionen üblicherweise in Snake Case (z.B. meine_funktion) und nicht in Camel Case oder mit Grossbuchstaben. 
+- Keine Grossbuchstaben bei Funktionen und Variablen: In Python sind Funktionen üblicherweise in Snake Case (z.B. meine_funktion) und nicht in Camel Case oder mit Grossbuchstaben.
+- Vertrauen in die Versionsverwaltung gewinnen: Das Vertrauen in die Versionsverwaltung war nicht von Anfang an gegeben. Erst nach der konsequenten Anwendung der Git-Versionserwaltung und der vorgängigen Verinnerlichung der Theorie, hat sich ein Grundvertrauen ergeben.​
+- Learning by Doing
