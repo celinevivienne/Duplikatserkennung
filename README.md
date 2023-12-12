@@ -78,6 +78,9 @@ Das Hauptprogramm besteht aus drei Klassen: InputWindow, DuplicateFinder und Out
 
 > **OutputWindow** zeigt die Ergebnisse der Duplikatserkennung in einem neuen Fenster an.
 
+### Sequenzdiagramm
+![Alt text](Sequenzdiagramm.png)
+
 ### Funktionsweise
 
 Der Benutzer startet das Programm und wählt über die GUI (InputWindow) den Ordner mit den zu prüfenden Bildern aus.
@@ -128,10 +131,6 @@ Diese Projektarbeit verwendet GIT als Versionsverwaltungssystem, um Änderungsze
 ![Alt text](Versionierung.png)
 
 ![Alt text](Versionierung_Branch.png)
-
-### Sequenzdiagramm
-<img width="977" alt="grafik" src="https://github.com/celinevivienne/Duplikatserkennung/assets/113386635/771418f6-e7ee-4259-954c-b604e4a45748">
-
 
 #### Testing
 Erster Testlauf: Duplikatserkennung in Python
