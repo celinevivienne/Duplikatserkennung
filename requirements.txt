@@ -3,18 +3,9 @@
 # simple run 'pip install -r requirements.txt' to automatically install them on
 # their machine
 #
-# Every dependency must be on its own line. Note that the '#'-character is used
-# as comment character.
+# Every dependency must be on its own line. 
 #
-
-# For programming a game with pygame, you want to uncomment the following line:
-# pygame==2.5.2
-
-# If you want to try to package your project for easier distribution, uncomment
-# the following line:
-# pyinstaller==6.1.0
-
-# Hier externe Bilbiotheken ergänzen... 
+# Die Bibliotheken, welche hier aufgeführt sind, wurden mit dem Befehl pip freeze geholt. pip freeze gibt eine Liste der installierten Pakete in der aktuellen virtuellen Umgebung zurück. Es müssen somit alle Bibliotheken in der Python-Umgebung installiert weden, bevor der Code ausgeführt wird. 
 
 black==22.10.0
 click==8.1.7
