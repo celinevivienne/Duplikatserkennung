@@ -48,12 +48,21 @@ Bevor das Programm ausgeführt wird, müssen auch die entsprechenden verwendeten
     pip install -r requirements.txt
 ``
 
-Die im Code verwendeten Bibliotheken sind:
-- PIL (Python Imaging Library): Für die Bildverarbeitung, insbesondere zum Öffnen von Bildern.
-- imagehash: Eine Bibliothek zur Berechnung von Hash-Werten für Bilder.
-- os: Eine integrierte Python-Bibliothek, die Operationen auf dem Betriebssystem ermöglicht, hier insbesondere für Datei- und Verzeichnisoperationen.
-- tkinter: Die Standard-GUI-Bibliothek für Python, die für die Erstellung der grafischen Benutzeroberfläche (GUI) verwendet wird.
-- scikit-image: Scikit-image ist eine Open-Source-Bibliothek für die Programmiersprache Python, die hauptsächlich für die Bildverarbeitung und -analyse verwendet wird.
+Die verwendeten Bibliotheken im Code sind folgende:
+
+**Eingebaute Python-Bibliotheken:**
+
+- os: Für plattformunabhängige Betriebssystemfunktionen.
+- tkinter und ttk: Die Standard-GUI-Bibliothek für Python, die für die Erstellung der grafischen Benutzeroberfläche (GUI) verwendet wird.
+
+**Bibliotheken von Drittanbietern:**
+- PIL (Python Imaging Library): Eine integrierte Python-Bibliothek, die Operationen auf dem Betriebssystem ermöglicht, hier insbesondere für Datei- und Verzeichnisoperationen.
+- ImageTk (Teil von PIL): Für die Integration von Bildern in Tkinter.
+- filedialog (aus tkinter): Für den Dateidialog zum Auswählen von Ordnern.
+- ttk (Teil von tkinter): Für einige spezielle Widgets in Tkinter, wie Label und Button.
+- skimage (scikit-image): Für die Bildverarbeitung, Bildvergleich und Transformationen.
+- imagehash: Für die Erzeugung von Bildhashes.
+- messagebox (aus tkinter): Für das Anzeigen von Meldungen.
 
 Diese Bibliotheken werden für die Erstellung einer GUI-Anwendung zur Duplikatserkennung von Bildern verwendet.
 Nachdem diese Schritte abgeschlossen sind, kann der Benutzer das Programm durch Ausführen des oben genannten python-Befehls starten.
@@ -77,20 +86,16 @@ Das Hauptprogramm besteht aus drei Klassen: InputWindow, DuplicateFinder und Out
 > **DuplicateFinder** ist für die eigentliche Duplikatserkennung verantwortlich. Es wird nach doppelten Bilder in einem angegebenen Verzeichnis gesucht. Es können dabei zwei unterschiedliche Methoden angewendet werden: Die Methode find_duplicates_hash nutzt den Durchschnitts-Hash von Bildern, um Duplikate zu identifizieren. Dabei werden Hashes für jedes Bild erstellt und verglichen. Die Methode find_duplicates_structure verwendet die strukturelle Ähnlichkeit von Bildern.
 Beide Methoden unterstützen die Bildformate ".png", ".jpg", ".jpeg", ".gif" und ".bmp". 
 
-> **OutputWindow** zeigt die Ergebnisse der Duplikatserkennung in einem neuen Fenster an.
+> **OutputWindow** erstellt ein Fenster zur Anzeige von Duplikatserkennungsergebnissen. Benutzer können Bilder direkt im Verzeichnis löschen, indem sie Checkboxen auswählen und auf "Ausgewählte löschen" klicken. Die Methode delete_selected_images führt das Löschen durch. Die Fortschrittsanzeige (progressbar) wird während der Duplikatserkennung aktualisiert, um den aktuellen Fortschritt anzuzeigen. Die Klasse ist darauf ausgerichtet, eine benutzerfreundliche Interaktion mit den Ergebnissen der Duplikatserkennung zu ermöglichen.
 
 ### Sequenzdiagramm
 ![Alt text](Sequenzdiagramm.png)
 
 ### Funktionsweise
-
-Der Benutzer startet das Programm und wählt über die GUI (InputWindow) den Ordner mit den zu prüfenden Bildern aus.
-Das Programm verwendet die DuplicateFinder-Klasse, um Duplikate in diesem Ordner zu finden. Aktuell wird nur die Hash-basierte Methode (find_duplicates_hash) verwendet.Die Ergebnisse werden dann in einem separaten Fenster (OutputWindow) angezeigt.
-
-Das Programm verwendet die tkinter-Bibliothek für die Benutzeroberfläche und die Pillow-Bibliothek für die Bildverarbeitung. Die Hash-basierte Methode vergleicht Bilder anhand ihrer durchschnittlichen Hash-Werte.
+Der Code implementiert eine GUI-Anwendung zur Duplikatserkennung von Bildern in einem ausgewählten Ordner mit den zu prüfenden Bildern. Der Benutzer wählt einen Ordner aus, gibt die Methode (Hash- oder Struktur-basiert) und einen Ähnlichkeitsschwellenwert für die Methode "Struktur-basiert" an. Das Programm erkennt Duplikate und ermöglicht dem Benutzer, Bilder zu löschen. Die Fortschrittsleiste zeigt den Scan-Fortschritt an.
 
 ### Clean Code
-In Bezug auf Clean Code haben wir folgendes umgesetzt: 
+In Bezug auf Clean Code wurde folgendes umgesetzt: 
 - Gemeinsame Funktionalität in eigene Funktionen und Klassen ausgelagert
 - Weglassen, was aktuell wirklich nicht gebraucht wird
 - Unverständlicher Code korrigiert
@@ -133,10 +138,10 @@ Diese Projektarbeit verwendet GIT als Versionsverwaltungssystem, um Änderungsze
 
 ![Alt text](Versionierung_Branch.png)
 
-#### Testing
+### Testing
 Erster Testlauf: Duplikatserkennung in Python
 
-Wir haben unsere Duplikatserkennungssoftware einem ersten Test unterzogen, um die Effektivität und Genauigkeit unter verschiedenen Bedingungen zu bewerten. Hier sind die Testfälle, die wir durchgeführt haben:
+Die Duplikatserkennungssoftware wurde entsprechend getestet, um die Effektivität und Genauigkeit unter verschiedenen Bedingungen zu bewerten. Hier sind die Testfälle, die durchgeführt wurden:
 
 - Graustufen- und Duplex-Bilder: Die Software wurde darauf getestet, Duplikate zu erkennen, die in Graustufen konvertiert wurden sowie in Duplex-Modus, der nur zwei Farbtöne verwendet.
 
@@ -152,19 +157,28 @@ Wir haben unsere Duplikatserkennungssoftware einem ersten Test unterzogen, um di
 
 Die Ergebnisse dieser Tests geben Aufschluss über die Anpassungsfähigkeit und Genauigkeit unserer Software und liefern wichtige Erkenntnisse für die weitere Optimierung.
 
-Die Duplikatserkennungssoftware hat in unserem ersten Testlauf gute Ergebnisse gezeigt und nahezu alle gestellten Aufgaben mit einer Erfolgsrate von 100% gemeistert. Einzig bei der Unterscheidung zwischen identischen und ähnlichen Bildern gab es Herausforderungen, die nicht vollständig erfolgreich waren. 
-Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem zweiten Testlauf auch die ähnlichen Bilder erkannt wurden. Dafür wurde der Schwellwert auf 70% reduziert. Anschliessend wurden sogar die ähnlichen Fotos von der Software erkannt
+Die Duplikatserkennungssoftware hat in unserem ersten Testlauf (Version 1) gute Ergebnisse gezeigt und nahezu alle gestellten Aufgaben mit einer Erfolgsrate von 100% gemeistert. Einzig bei der Unterscheidung zwischen identischen und ähnlichen Bildern gab es Herausforderungen, die nicht vollständig erfolgreich waren. 
+Dieses Ergebnis half uns dabei, unseren Code noch so anzupassen, dass in einem zweiten Testlauf (Version 2) auch die ähnlichen Bilder erkannt wurden. Dafür wurde der Schwellwert auf 70% reduziert. Anschliessend wurden sogar die ähnlichen Bilder von der Software erkannt.
+
+Die Implementierung der Bildlöschfunktion wurde zuerst als optionale Anforderung betrachtet und war daher in den Tests nicht explizit aufgeführt. Dennoch wurde diese Funktion erfolgreich eingeführt, da ausreichend Zeit zur Verfügung stand und sie sich als äußerst hilfreich und effizient bei der Bereinigung der lokalen Bibliothek erwiesen hat. 
 
 
-### Erweiterungen
+## Erweiterungen
 
-1. Die Bilderkennungssoftware soll um **Cloud-Anbindung** erweitert werden, um Benutzern Zugriff auf ihre in der Cloud gespeicherten Bilder zu ermöglichen.
-2. Es wird angestrebt, eine **mobile Anwendung** zu implementieren, die eine ansprechende Benutzeroberfläche bietet und es Nutzern erlaubt, Duplikate auf ihren Mobilgeräten einfach zu erkennen und zu organisieren.
-3. Zudem wird angestrebt, das **GUI** noch etwas zu verschönern und zu verbessern, damit das UX noch benutzerfreundlicher und attraktiver wird.
-4. **Bildqualitätsbewertung**: Die Software sollte die Bildqualität anhand von Metriken wie Schärfe, Farbintensität und Kontrast bewerten und das Bild mit besserer Qualität behalten.
+1. Integration von Cloud-Services:
+Die Weiterentwicklung der Bilderkennungssoftware sieht die Implementierung einer Cloud-Anbindung vor. Dadurch erhalten Benutzer die Möglichkeit, auf ihre in der Cloud gespeicherten Bilder zuzugreifen und diese nahtlos in die Software einzubinden.
 
-### Lessons learned
-- Einrichten der Console: Die korrekte Einrichtung der Entwicklungskonsole ist entscheidend. Wir haben gelernt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
-- Keine Grossbuchstaben bei Funktionen und Variablen: In Python sind Funktionen üblicherweise in Snake Case (z.B. meine_funktion) und nicht in Camel Case oder mit Grossbuchstaben.
-- Vertrauen in die Versionsverwaltung gewinnen: Das Vertrauen in die Versionsverwaltung war nicht von Anfang an gegeben. Erst nach der konsequenten Anwendung der Git-Versionserwaltung und der vorgängigen Verinnerlichung der Theorie, hat sich ein Grundvertrauen ergeben.​
-- Learning by Doing
+2. Mobile Anwendung mit Fokus auf Benutzerfreundlichkeit:
+Ein weiteres Ziel besteht darin, eine mobile Anwendung zu entwickeln, die nicht nur über eine ansprechende Benutzeroberfläche verfügt, sondern auch eine intuitive Nutzung ermöglicht. Diese Anwendung soll es den Nutzern erleichtern, Duplikate auf ihren Mobilgeräten zu identifizieren und effizient zu organisieren.
+
+3. Verbesserung des grafischen Benutzeroberfläche (GUI):
+Die Gestaltung des GUIs soll weiter optimiert und verschönert werden, um das Nutzererlebnis (UX) noch benutzerfreundlicher und ansprechender zu gestalten. Durch eine verbesserte visuelle Darstellung sollen Anwender eine angenehmere Interaktion mit der Software erleben.
+
+4. Bildqualitätsbewertung für optimale Bildauswahl:
+Ein wichtiger Aspekt der Softwareerweiterung ist die Integration einer Bildqualitätsbewertung. Mithilfe von Metriken wie Schärfe, Farbintensität und Kontrast soll die Software die Bildqualität analysieren. Dadurch kann die Anwendung automatisch das Bild mit höherer Qualität auswählen und beibehalten, um eine optimale Auswahl für die Benutzer zu gewährleisten.
+
+## Lessons learned
+- **Einrichtung der Konsole**: Die sorgfältige Einrichtung der Entwicklungskonsole ist von entscheidender Bedeutung. Wir haben erkannt, wie wichtig es ist, eine stabile und effiziente Arbeitsumgebung zu schaffen, die das Debugging und Testen der Software erleichtert.
+- **Keine Grossbuchstaben bei Funktionen und Variablen**: In Python sollten Funktionen üblicherweise im Snake-Case-Format geschrieben werden, zum Beispiel "meine_funktion", anstelle von Camel Case oder der Verwendung von Großbuchstaben für Funktionen und Variablen.
+- **Vertrauen in die Versionsverwaltung gewinnen**: Das Vertrauen in die Versionsverwaltung war nicht von Anfang an gegeben. Erst nach der konsequenten Anwendung der Git-Versionserwaltung und der vorgängigen Verinnerlichung der Theorie, hat sich ein Grundvertrauen ergeben.​
+- **Learning by Doing**: Lernen durch praktische Anwendung und Ausprobieren
