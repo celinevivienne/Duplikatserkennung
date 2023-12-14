@@ -139,8 +139,6 @@ Diese Projektarbeit verwendet GIT als Versionsverwaltungssystem, um Änderungsze
 ![Alt text](Versionierung_Branch.png)
 
 ### Testing
-Erster Testlauf: Duplikatserkennung in Python
-
 Die Duplikatserkennungssoftware wurde entsprechend getestet, um die Effektivität und Genauigkeit unter verschiedenen Bedingungen zu bewerten. Hier sind die Testfälle, die durchgeführt wurden:
 
 - Graustufen- und Duplex-Bilder: Die Software wurde darauf getestet, Duplikate zu erkennen, die in Graustufen konvertiert wurden sowie in Duplex-Modus, der nur zwei Farbtöne verwendet.
