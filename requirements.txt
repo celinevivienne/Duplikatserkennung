@@ -17,8 +17,24 @@
 # Hier externe Bilbiotheken ergänzen... 
 
 black==22.10.0
+click==8.1.7
+colorama==0.4.6       
 flake8==4.0.1
-pep8-naming==0.13.2
-ImageHash==4.3.1
-Pillow==10.1.0
-scikit-image==0.22.0
+ImageHash==4.3.1      
+imageio==2.33.0       
+lazy_loader==0.3      
+mccabe==0.6.1
+mypy-extensions==1.0.0
+networkx==3.2.1       
+numpy==1.26.2
+packaging==23.2       
+pathspec==0.11.2      
+pep8-naming==0.13.2   
+Pillow==10.1.0        
+platformdirs==4.0.0   
+pycodestyle==2.8.0    
+pyflakes==2.4.0       
+PyWavelets==1.4.1     
+scikit-image==0.22.0  
+scipy==1.11.3
+tifffile==2023.9.26
